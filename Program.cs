@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks()
-                .AddCheck<AssemblyVersionHealthCheck>("Assembly Version");
+    .AddCheck<AssemblyVersionHealthCheck>("Assembly Version")
+    .AddCheck<GitShaHealthCheck>("Git SHA");
 
 var app = builder.Build();
 
