@@ -1,4 +1,4 @@
-using HealthChecks.Checks;
+using HealthChecks;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
@@ -7,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks()
-    .AddCheck<AssemblyVersionHealthCheck>("Assembly Version")
-    .AddCheck<GitShaHealthCheck>("Git SHA");
+                .AddCheck<AssemblyVersionHealthCheck>("Assembly Version")
+                .AddCheck<GitShaHealthCheck>("Git SHA");
 
 var app = builder.Build();
 
@@ -24,7 +24,7 @@ var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
-
+    
 app.MapGet("api/weather-forecast", () =>
 {
     var forecast =  Enumerable.Range(1, 5).Select(index =>
@@ -51,5 +51,3 @@ record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }
-
-
