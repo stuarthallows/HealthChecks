@@ -1,4 +1,5 @@
 using HealthChecks.Checks;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,8 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks()
-                .AddCheck<AssemblyVersionHealthCheck>("Assembly Version")
-                .AddCheck<SampleHealthCheck>("Sample");
+                .AddCheck<AssemblyVersionHealthCheck>("Assembly Version");
 
 var app = builder.Build();
 
@@ -41,7 +41,7 @@ app.MapGet("api/weather-forecast", () =>
 
 app.MapHealthChecks("/healthz", new HealthCheckOptions
 {
-    ResponseWriter = HealthCheckResponse.WriteHealthZResponse
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 });
 
 app.Run();

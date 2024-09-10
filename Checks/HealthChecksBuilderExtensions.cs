@@ -6,6 +6,9 @@ public static class HealthChecksBuilderExtensions
 {
     public static IHealthChecksBuilder AddAssemblyVersion(this IHealthChecksBuilder builder)
     {
-        return builder.Add(new HealthCheckRegistration("Assembly Version", sp => new AssemblyVersionHealthCheck(), HealthStatus.Healthy, []));
+        builder.AddCheck<AssemblyVersionHealthCheck>("Assembly Version");
+        // return builder.Add(new HealthCheckRegistration("Assembly Version", sp => new AssemblyVersionHealthCheck(), HealthStatus.Healthy, []));
+
+        return builder;
     }
 }
