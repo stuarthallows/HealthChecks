@@ -1,4 +1,4 @@
-using HealthChecks.Checks;
+using HealthChecks;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
