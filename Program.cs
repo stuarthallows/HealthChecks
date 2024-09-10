@@ -1,4 +1,4 @@
-using HealthChecks.Checks;
+using HealthChecks;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
@@ -7,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks()
-    .AddCheck<AssemblyVersionHealthCheck>("Assembly Version")
-    .AddCheck<GitShaHealthCheck>("Git SHA");
+                .AddCheck<AssemblyVersionHealthCheck>("Assembly Version")
+                .AddCheck<GitShaHealthCheck>("Git SHA");
 
 var app = builder.Build();
 

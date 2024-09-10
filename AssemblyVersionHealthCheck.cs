@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace HealthChecks.Checks;
+namespace HealthChecks;
 
 public class AssemblyVersionHealthCheck : IHealthCheck
 {

@@ -1,20 +1,7 @@
-workflow: GitFlow/v1
-mode: ManualDeployment
+mode: Mainline
 branches:
-  master:
-    label: mc
-    increment: Patch
-    prevent-increment-of-merged-branch-version: true
-    track-merge-target: false
-    regex: ^release\/*
-    source-branches:
-      - main
-    tracks-release-branches: false
-    is-release-branch: false
-    is-mainline: true
-    pre-release-weight: 55000
   release:
-    label: rc
+    tag: ''
     increment: Patch
     prevent-increment-of-merged-branch-version: true
     track-merge-target: false

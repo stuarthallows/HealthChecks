@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace HealthChecks.Checks;
+namespace HealthChecks;
 
 /// <summary>
 /// A health check that reports the SHA of the current commit.
