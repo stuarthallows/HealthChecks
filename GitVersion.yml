@@ -1,31 +1,7 @@
-mode: Mainline
+workflow: GitFlow/v1
+mode: ManualDeployment
 branches:
-  release:
-    increment: Patch
-    prevent-increment-of-merged-branch-version: true
-    track-merge-target: false
-    regex: ^release\/*
-    source-branches:
-    - main
-    tracks-release-branches: false
-    is-release-branch: false
-    is-mainline: true
-    pre-release-weight: 55000
-  fix:
-    mode: ContinuousDelivery
-    tag: beta
-    increment: Patch
-    prevent-increment-of-merged-branch-version: false
-    track-merge-target: false
-    regex: ^fix\/*
-    source-branches:
-      - develop
-      - main
-      - support
-    tracks-release-branches: false
-    is-release-branch: false
-    is-mainline: false
-    pre-release-weight: 30000
-ignore:
-  sha: []
-merge-message-formats: {}
+  main:
+    label: rc
+  support:
+    label: beta
